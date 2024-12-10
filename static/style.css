@@ -1,0 +1,262 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Josefin+Sans:ital,wght@1,200&display=swap');
+</style>
+
+*{
+  box-sizing:border-box;
+}
+html,body{
+  margin: 0;
+  padding: 0;
+  background-color: #ff7733
+  height: 100vh;
+  font-family: 'Open Sans';
+  overflow-x: hidden;
+
+}
+
+button{
+  border-radius: 2;
+  width: 20%;
+  height: 100%;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  -webkit-appearance:none; -webkit-border-radius:1;
+}
+
+button i{
+  float: right;
+  padding-right: 30px;
+  margin-top: 3px;
+}
+
+button.a{
+  background-color: #36ff33;
+}
+
+button.b{
+  background-color: #00cbca;
+}
+
+#tip{
+  text-align: center;
+  font-size: 14px;
+  background-color:#000;
+  color:#bb14c6;
+  display:inline-block;
+  padding-left:8px;
+  padding-right:8px;
+  text-align:center
+}
+
+#tippi{
+  text-align: center;
+  font-size: 25px;
+  background-color:#000;
+  color:#bb14c6;
+  display:inline-block;
+  padding-left:8px;
+  padding-right:8px;
+  text-align:center
+}
+
+.textfield{
+  text-align: center;
+  font-size: 25px;
+  color:#bb14c6;
+  background-color: cyan;
+  font-weight:bold;
+  padding-left:8px;
+  padding-right:8px;
+  text-align:center
+}
+
+#hostname{
+  position: absolute;
+  bottom: 100px;
+  right: 0;
+  left: 0;
+  color: #8f9ea8;
+  font-size: 24px;
+}
+
+#content-container{
+  z-index: 2;
+  position: relative;
+  margin: 0 auto;
+  display: table;
+  padding: 10px;
+  width: 80%;
+  height: 80%;
+}
+#content-container-center{
+  display: table-cell;
+  text-align: center;
+}
+
+#content-container-center h3{
+  color: #254356;
+}
+
+#choice{
+  transition: all 300ms linear;
+  line-height: 2em;
+  display: inline;
+  vertical-align: middle;
+  horizontal-align: middle;
+  font-size: 3em;
+  align: center
+}
+#choice a{
+  text-decoration:none;
+}
+#choice a:hover, #choice a:focus{
+  outline:0;
+  text-decoration:underline;
+}
+
+#choice button{
+  height: 80px;
+  width: 300px;
+  border: none;
+  color: red;
+  text-transform: uppercase;
+  font-size:18px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#choice button.a:hover{
+  background-color: #1488c6;
+}
+
+#choice button.b:hover{
+  background-color: #00a2a1;
+}
+
+#choice button.a:focus{
+  background-color: #1488c6;
+}
+
+#choice button.b:focus{
+  background-color: #00a2a1;
+}
+
+#choice input{
+  height: 40px;
+  width: 300px;
+  border: none;
+  color: red;
+  text-transform: uppercase;
+  font-size:18px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+#background-stats{
+  z-index:1;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+#background-stats div{
+  transition: width 400ms ease-in-out;
+  display:inline-block;
+  margin-bottom:-4px;
+  width:50%;
+  height:100%;
+}
+
+
+
+dl {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  padding: 20px;
+}
+
+dt {
+  align-self: flex-start;
+  width: 100%;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-left: 130px;
+}
+
+.text {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 130px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  justify-content: flex-end;
+}
+
+.percentage {
+  font-size: .8em;
+  line-height: 1;
+  text-transform: uppercase;
+  width: 100%;
+  height: 40px;
+  margin-left: 130px;
+  background: repeating-linear-gradient(
+  to right,
+  #ddd,
+  #ddd 1px,
+  #fff 1px,
+  #fff 5%
+);
+
+  &:after {
+    content: "";
+    display: block;
+    background-color: #3d9970;
+    width: 50px;
+    margin-bottom: 10px;
+    height: 90%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color .3s ease;
+    cursor: pointer;
+  }
+  &:hover,
+  &:focus {
+    &:after {
+       background-color: #aaa;
+    }
+  }
+}
+
+@for $i from 1 through 100 {
+  .percentage-#{$i} {
+    &:after {
+      $value: ($i * 1%);
+      width: $value;
+    }
+  }
+}
+
+
+
+#pets_align {
+
+}

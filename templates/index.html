@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<title>VOTING ARENA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Swapnilsocial">
+<link rel="stylesheet" href="{{ url_for('static',filename='formats.css')}}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<style>
+body, html {
+  height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("static/logo.png");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-blue">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-blue">INTRO</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-blue">SAMPLE</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#new-user" class="w3-button w3-block w3-blue">CREATE</a>
+    </div>
+          <div class="w3-col s3">
+      <a href="#aboutus" class="w3-button w3-block w3-blue">ABOUT</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-red" style="font-size:90px"><br></span>
+  </div>
+  <div class="w3-display-bottommiddle w3-center">
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <label><h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide w3-text-yellow">WHAT IS VOTING ARENA?</span></h5></label>
+    <p class="w3-text-red">Voting Arena is a simple website which allows user to vote between two or more choices.
+        The choices are provided by admin and the other users can vote after registration.</p>
+    <p class="w3-text-red">This fun app allows you to select a theme background or customize your own.</p>
+</div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-text-yellow">VOTE FOR YOUR FAVOURITE PET</span></h5>
+    <p class="w3-text-red"><span class="w3-tag">Note!</span> This is just an illustration to show how Voting works...!!</p>
+    <p><strong class="w3-text-green">To goto voting page, click this image......</strong> </p>
+  <img id="pets" src="{{ url_for('static', filename='catdog.jpg')}}" style="width:100%;max-width:1000px;margin-top:32px;" value="shakti">
+  </div>
+</div>
+<script type="text/javascript">
+        document.getElementById("pets").onclick = function () {
+        location.href = "{{ url_for('vote_pets')}}";
+    };
+</script>
+
+<!-- Contact/Area Container -->
+<div class="w3-container" id="new-user" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">CREATE YOUR OWN VOTING SCENARIOS</span></h5>
+    <p class="w3-text-green">To create you own voting scenarios, fill this registration form and follow these three simple instructions...
+      <p class="w3-text-green">1. Fill details, choose theme and click "CREATE YOUR OWN POLLING" button </p>
+      <p class="w3-text-green">2. Fill in Contestant details and submit</p>
+      <p class="w3-text-green">3. Share the url generated with your target audience </p>
+    </p>
+    <img src="{{ url_for('static', filename='wip.jpg')}}" class="w3-image" style="width:100%">
+    <p class="w3-text-green"><span class="w3-tag" >Note!</span>Below information is mandatory for using Voting application</p>
+    <form action="/create_polling" target="_blank" method="post">
+      <p style="color:red">Username: <input class="w3-input w3-border" type="text" placeholder="No spaces or special characters except _ . - are allowed" required name="Name" pattern="[0-9a-zA-Z_.-]*" minlength="8"></p>
+      <p style="color:red">Theme :<select class="w3-input w3-border" required name="theme">
+          <option value="default">default</option>
+          <option value="beverage">beverage</option>
+          <option value="car">car</option>
+          <option value="city">city</option>
+          <option value="food">food</option>
+          <option value="hotel">hotel</option>
+          <option value="pet">pet</option>
+          <option value="resort">resort</option>
+          <option value="restaurant">restaurant</option>
+          <option value="sport">sport</option>
+          <option value="superhero">superhero</option>
+          <option value="team">team</option>
+        <option value="others">others</option>
+      </select></p>
+      <p style="color:red">Voting scenario description: <input class="w3-input w3-border" type="text" placeholder="Tea vs Coffee vs Coke" required name="title"></p>
+     <p style="color:red">Nominee Count - &emsp;<input type="radio" name="contestants" value="2" checked> 2
+     <input type="radio" name="contestants" value="3"> 3
+         <input type="radio" name="contestants" value="4"> 4 </p>
+      <p><button class="w3-button w3-black" type="submit">CREATE YOUR OWN POLLING</button></p>
+    </form>
+  </div>
+</div>
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+
+</div>
+   <footer class="footer footer-default" id="aboutus" >
+        <div class="container">
+            <div class="copyright w3-center">
+  <p>Author: Swapnil Joshi<br>
+  <a href="mailto:swapniljoshisj20@gmail.com">swapniljoshisj20@gmail.com</a><br>
+  <a href="https://github.com/swapnilsocial">swapnilsocial@github</a><br>
+  <a href="https://www.linkedin.com/in/swapnilsocial">swapnilsocial@linkedin</a></p>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="copyright w3-center" >
+                       VoteOut v2.0.0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
